@@ -1,0 +1,33 @@
+class Paths:
+    def __init__(self, paths):
+        self.paths = paths
+
+    @property
+    def datasets(self):
+        #print('nitin',data_set)
+        return self.paths
+
+class DA:
+    def __init__(self, schema_name,path):
+        self.schema_name = schema_name
+        self.path=path
+        self.paths=Paths(self.path)
+
+    #return data_sets()
+
+path = "dbfs:/mnt/dbacademy-datasets/data-engineering-with-databricks/v02/"
+da=DA("analytics",path)
+
+print(da.schema_name)
+print(da.paths.datasets)
+
+da.paths.kafka_events = f"{da.paths.datasets}/ecommerce/raw/events-kafka"
+print(da.paths.kafka_events)
+
+
+#spark.conf.set('da.schema_name', f"{da.schema_name}")
+#spark.conf.get('da.schema_name')
+
+# COMMAND ----------
+
+
