@@ -1,4 +1,8 @@
 -- Databricks notebook source
+-- MAGIC %run ./setup
+
+-- COMMAND ----------
+
 show databases;
 
 -- COMMAND ----------
@@ -374,6 +378,22 @@ USE ${da.schema_name};
 -- COMMAND ----------
 
 show tables;
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC print(DA.paths.kafka_events)
+-- MAGIC 
+-- MAGIC files = dbutils.fs.ls(DA.paths.kafka_events)
+-- MAGIC display(files)
+
+-- COMMAND ----------
+
+SELECT * FROM json.`${DA.paths.kafka_events}/001.json`
+
+-- COMMAND ----------
+
+SELECT * FROM json.`${DA.paths.kafka_events}/*.json`
 
 -- COMMAND ----------
 
