@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Predefined paths variables:
 # | DA.paths.working_dir:  dbfs:/mnt/dbacademy-users/nitinjazz@gmail.com/data-engineering-with-databricks
 # | DA.paths.user_db:      dbfs:/mnt/dbacademy-users/nitinjazz@gmail.com/data-engineering-with-databricks/database.db
@@ -24,9 +25,27 @@ class DA:
 
 
 da = DA()
+=======
+class Paths:
+    def __init__(self):
+        None
+
+    datasets=None
+    kafka_events=None
+
+class DA:
+    def __init__(self):
+        self.paths=Paths()
+
+da=DA()
+
+da.paths.datasets="dbfs:/mnt/dbacademy-datasets/data-engineering-with-databricks/v02"
+print('da.paths.datasets :', da.paths.datasets)
+>>>>>>> 687d177abadf26972ae8dcb05dcdc477a1a57e75
 
 da.paths.datasets = "dbfs:/mnt/dbacademy-datasets/data-engineering-with-databricks/v02"
 da.paths.kafka_events = f"{da.paths.datasets}/ecommerce/raw/events-kafka"
+<<<<<<< HEAD
 da.paths.working_dir = "dbfs:/mnt/data_engineering"
 da.paths.user_db = f"{da.paths.working_dir}/analytics.db"
 da.paths.checkpoints = f"{da.paths.working_dir}/_checkpoints"
@@ -36,6 +55,9 @@ print('da.paths.kafka_events:', da.paths.kafka_events)
 print('da.paths.working_dir:', da.paths.working_dir)
 print('da.paths.user_db:', da.paths.user_db)
 print('da.paths.checkpoints:', da.paths.checkpoints)
+=======
+print('da.paths.kafka_events:',da.paths.kafka_events)
+>>>>>>> 687d177abadf26972ae8dcb05dcdc477a1a57e75
 
 # spark.conf.set('da.schema_name', f"{da.schema_name}")
 # spark.conf.get('da.schema_name')

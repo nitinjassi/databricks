@@ -17,26 +17,31 @@ spark.conf.set('da.paths.kafka_events',f"{da_paths_datasets}/ecommerce/raw/event
 
 # COMMAND ----------
 
-class da:
-    schema_name="analytics"
-    
-    def paths():
-        user_db=schema_name
-        return(data_sets())
-    
-    def data_sets():
-         data_sets="dbfs:/mnt/dbacademy-datasets/data-engineering-with-databricks/v02/"
-         return data_sets
-    
-        
-print(da.schema_name)
-print(da.paths.data_sets)
+class Paths:
+    def __init__(self):
+        None
 
-spark.conf.set('da.schema_name',f"{da.schema_name}")
-spark.conf.get('da.schema_name')
+    datasets=None
+    kafka_events=None
 
-    
-    
+class DA:
+    def __init__(self):
+        self.paths=Paths()
+
+da=DA()
+
+da.paths.datasets="dbfs:/mnt/dbacademy-datasets/data-engineering-with-databricks/v02"
+print('da.paths.datasets :', da.paths.datasets)
+
+da.paths.kafka_events = f"{da.paths.datasets}/ecommerce/raw/events-kafka"
+print('da.paths.kafka_events:',da.paths.kafka_events)
+
+#spark.conf.set('da.schema_name', f"{da.schema_name}")
+#spark.conf.get('da.schema_name')
+
+# COMMAND ----------
+
+
 
 
 # COMMAND ----------
