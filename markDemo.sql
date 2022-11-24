@@ -162,13 +162,17 @@ describe history patient_deep_clone;
 
 -- COMMAND ----------
 
+describe history patient_shallow_clone;
+
+-- COMMAND ----------
+
 SET spark.databricks.delta.formatCheck.enabled=false;
 select * from parquet.`dbfs:/user/hive/warehouse/.paths.user_db/patient_deep_clone/part-00001-8d3838a5-7786-44ba-81c6-afc50e655c06-c000.snappy.parquet`
 
 -- COMMAND ----------
 
 SET spark.databricks.delta.formatCheck.enabled=false;
-select * from parquet.`dbfs:/user/hive/warehouse/.paths.user_db/patient_deep_clone/part-00000-800bba39-d24f-4c8c-b23d-a6d6fe399e52-c000.snappy.parquet`
+select * from parquet.`dbfs:/user/hive/warehouse/.paths.user_db/patient_deep_clone/part-00000-df4a9b65-6a68-4eec-b499-238720954afb-c000.snappy.parquet`
 
 -- COMMAND ----------
 
